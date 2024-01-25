@@ -1,8 +1,9 @@
 const mongoose=require('mongoose')
+require('dotenv').config();
 const plm =require('passport-local-mongoose')
-const URI=process.env.URI
-mongoose.connect(URI)
-
+const uri=process.env.uri;
+mongoose.connect(uri)
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const userSchema=mongoose.Schema({
   username:{type:String,required:true},
   email:{type:String,required:true},
